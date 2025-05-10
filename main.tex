@@ -1,0 +1,88 @@
+% DAFN24 - Robotics - Lecture 4
+% Roberto Masocco <roberto.masocco@uniroma2.it>
+% May 16, 2024
+
+\documentclass[aspectratio=169]{beamer}
+
+% Slides layout
+\usepackage[
+    title={ROS 2},
+    subtitle={Advanced communication II},
+    event={DAFN},
+    author={Roberto Masocco},
+    longauthor={Roberto Masocco},
+    email={roberto.masocco@uniroma2.it},
+    institute={Tor Vergata},
+    longinstitute={University of Rome Tor Vergata},
+    department={Department of Civil Engineering and Computer Science Engineering},
+    researchgroup={},
+    date={May 16, 2024}
+]{utvengbeamer}
+
+% Code listings settings
+\usepackage[nomath]{lmodern}
+\definecolor{codegreen}{rgb}{0 0.5 0}
+\definecolor{codered}{rgb}{1 0 0}
+\definecolor{codeocher}{rgb}{0.8 0.47 0.13}
+\usepackage{listings}
+\lstdefinestyle{beamer}{
+    basicstyle=\ttfamily\small,
+    commentstyle=\color{codegreen},
+    breakatwhitespace=false,
+    captionpos=b,
+    frame=lines,
+    keepspaces=true,
+    keywordstyle=\color{codered}\bfseries,
+    numbers=left,
+    numbersep=5pt,
+    numberstyle=\footnotesize,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    stringstyle=\color{codeocher},
+    tabsize=2
+}
+\lstset{style=beamer}
+\lstdefinelanguage{ros2msg}{
+  alsoletter={[, ], _, /},
+  morecomment=[l][\color{codegreen}]{\#},
+  morekeywords={int64, uint32, string, uint8, uint8[], int32, int32[], std_msgs/Header}
+}
+
+\usepackage{hyperref}
+\usepackage{wasysym}
+
+\begin{document}
+
+% --- Title page ---
+\frame{\titlepage}
+
+% --- Recap ---
+\input{sections/recap.tex}
+
+% --- Table of contents ---
+\begin{frame}
+	\frametitle{Roadmap}
+	\tableofcontents
+\end{frame}
+
+% --- Section 1 ---
+\input{sections/interfaces}
+
+% --- Section 2 ---
+\input{sections/actions}
+
+% --- Exercises ---
+\begin{frame}{Exercises}
+	\begin{itemize}
+		\item Run the action client and server examples, and try to call the action from the command line.
+		\item Modify the feedback message: instead of a partial sequence, it should publish the length of the sequence so far; this requires:
+		      \begin{enumerate}
+			      \item modifying the action definition in \texttt{ros2\_examples\_interfaces};
+			      \item modifying the server node to publish the length of the sequence instead of the partial sequence in the feedback message (hint: use methods of the \texttt{std::vector} class to get the length of the partial sequence in one go);
+			      \item modifying the feedback callback in the client to parse and print the length from the feedback message.
+		      \end{enumerate}
+	\end{itemize}
+\end{frame}
+
+\end{document}

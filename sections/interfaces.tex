@@ -1,0 +1,22 @@
+% Section 1 - Interface packages
+% Roberto Masocco <roberto.masocco@uniroma2.it>
+% May 16, 2024
+
+% ### Interface packages ###
+\section{Interface packages}
+
+% --- Defining custom interfaces ---
+\begin{frame}{Defining custom interfaces}{From package organization to build}
+  Custom communication interfaces can be defined in \textbg{appropriate packages}.\\
+  \bigskip
+  The organization of such packages is regulated by a set of \textbg{best practices}.\\
+  \bigskip
+  When these packages are built, they generate both \textbg{code to include in} and \textbg{libraries to link against} the packages using them.\\
+  \bigskip
+  For everything to work, each package must have \textbg{the same interface packages} as \textbg{dependencies}, as well as link against \textbg{the same generated code}.\\
+  \bigskip
+  \begin{block}{}
+    \centering
+    Find all relevant information in our \href{https://github.com/IntelligentSystemsLabUTV/ros2-examples/blob/humble/interfaces.md}{\color{blue}\underline{\texttt{interfaces.md}}} file!
+  \end{block}
+\end{frame}
